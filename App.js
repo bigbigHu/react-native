@@ -14,21 +14,9 @@ import {
   View,
   TextInput,
   TouchableHighlight,
-  TouchableNativeFeed,
-  Image,
-  TextInput
+  TouchableOpacity,
+  Image
 } from 'react-native';
-
-
-class Customize extends Component {
-  render() {
-    return (
-      <TextInput
-        {...this.props}
-      />
-    );
-  }
-}
 
 export default class App extends Component {
   constructor(props) {
@@ -45,7 +33,7 @@ export default class App extends Component {
     })
   }
   handleSubmit = () => {
-    
+    console.log(12312);
   }
   render() {
     return (
@@ -54,7 +42,7 @@ export default class App extends Component {
         initialPage={0}
       >
         <View style={styles.pageStyle} key="1">
-          <Image source={require('./assets/images/logo_zh-cn.ong')} />
+          <Image source={require('./src/assets/images/logo_zh-cn.png')} />
           <TextInput
             style={styles.textInput}
             placeholder="请输入账号"
@@ -66,9 +54,13 @@ export default class App extends Component {
             placeholder="请输入密码"
             placeholderTextColor={styles.placeholderColor}
           />
-          <TouchableHighlight
+          <TouchableOpacity
+            style={styles.loginBtn}
             onPress={this.handleSubmit}
-          ></TouchableHighlight>
+            activeOpacity={0.8}
+          >
+            <Text>登录</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.pageStyle} key="2">
           <Text>hello hx</Text>
@@ -115,5 +107,13 @@ const styles = StyleSheet.create({
   },
   placeholderColor: {
     color: '#555'
+  },
+  loginBtn: {
+    backgroundColor: '#3782D3',
+    alignItems: 'center',
+    width: 180,
+    padding: 10,
+    color: '#fff',
+    borderRadius: 5
   }
 });
