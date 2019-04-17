@@ -44,7 +44,9 @@ export default class App extends Component {
         initialPage={0}
       >
         <View style={styles.pageStyle} key="1">
-          <Image source={require('./src/assets/images/xiami_right.png')} />
+          <View style={styles.logo}>
+            <Image source={require('./src/assets/images/xiami_right.png')} />
+          </View>
           <TextInput
             style={styles.textInput}
             placeholder="请输入账号"
@@ -65,7 +67,7 @@ export default class App extends Component {
             onPress={this.handleSubmit}
             activeOpacity={0.8}
           >
-            <Text>登录</Text>
+            <Text style={{color: '#fff'}}>登录</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.pageStyle} key="2">
@@ -79,6 +81,9 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   marBottom: {
     marginBottom: 30,
+  },
+  marginHorizontal10: {
+    marginHorizontal: 10,
   },
   container: {
     width: 260,
@@ -101,27 +106,33 @@ const styles = StyleSheet.create({
   },
   pageStyle: {
     flexDirection: 'column',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    alignItems: 'stretch',
     padding: 20
   },
   textInput: {
-    flex: 1,
     height: 40,
     borderRadius: 5,
     borderColor: '#ddd',
     borderWidth: 1,
-    marginHorizontal: 10,
-    paddingHorizontal: 5
+    paddingHorizontal: 5,
+    marginVertical: 10
   },
   placeholderColor: {
     color: '#555'
   },
   loginBtn: {
+    marginTop: 10,
     backgroundColor: '#3782D3',
     alignItems: 'center',
-    width: 180,
-    padding: 10,
-    color: '#fff',
+    // height: 30,
+    paddingVertical: 15,
     borderRadius: 5
+  },
+  logo: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
+    marginBottom: 40
   }
 });
