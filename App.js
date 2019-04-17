@@ -23,7 +23,9 @@ export default class App extends Component {
     super(props);
     this.state = {
       text: '#fff',
-      num: 0
+      num: 0,
+      password: '',
+      accountNumber: '',
     }
   }
   pressbtn = () => {
@@ -33,7 +35,7 @@ export default class App extends Component {
     })
   }
   handleSubmit = () => {
-    console.log(12312);
+    console.log(this.state);
   }
   render() {
     return (
@@ -42,17 +44,21 @@ export default class App extends Component {
         initialPage={0}
       >
         <View style={styles.pageStyle} key="1">
-          <Image source={require('./src/assets/images/logo_zh-cn.png')} />
+          <Image source={require('./src/assets/images/xiami_right.png')} />
           <TextInput
             style={styles.textInput}
             placeholder="请输入账号"
             placeholderTextColor={styles.placeholderColor}
+            onChangeText={(accountNumber) => { this.setState({ accountNumber }) }}
+            value={this.state.accountNumber}
           />
           <TextInput
             secureTextEntry={true}
             style={styles.textInput}
             placeholder="请输入密码"
             placeholderTextColor={styles.placeholderColor}
+            onChangeText={(password) => { this.setState({ password }) }}
+            value={this.state.password}
           />
           <TouchableOpacity
             style={styles.loginBtn}
@@ -94,15 +100,17 @@ const styles = StyleSheet.create({
     flex: 1
   },
   pageStyle: {
+    flexDirection: 'column',
     alignItems: 'center',
     padding: 20
   },
   textInput: {
+    flex: 1,
     height: 40,
     borderRadius: 5,
     borderColor: '#ddd',
     borderWidth: 1,
-    marginBottom: 5,
+    marginHorizontal: 10,
     paddingHorizontal: 5
   },
   placeholderColor: {
