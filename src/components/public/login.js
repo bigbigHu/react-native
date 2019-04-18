@@ -33,7 +33,6 @@ export default class Login extends Component {
     this.props.navigation.navigate('Register', {'notice': '我是从登陆页路由带来的信息'});
   }
   handleSubmit = () => {
-    console.log(this.state);
     const { accountNumber, password } = this.state;
     if (!accountNumber || !password) {
       alert('请检查账号密码是否存在');

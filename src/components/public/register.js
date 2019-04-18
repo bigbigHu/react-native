@@ -7,11 +7,30 @@ import {
   TextInput,
   Picker,
   Image,
-  ViewPagerAndroid
+  ViewPagerAndroid,
+  Button
 } from 'react-native';
 import { SliderPager } from '../common/index';
 
 export default class Register extends Component {
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    return {
+      headerRight: (
+        <Button
+          onPress={() => { alert(111); }}
+          title="btn"
+          color="#000"
+        />
+      ),
+      headerLeft: (
+        <Button 
+          onPress={() => { console.log(1);navigation.goBack(); }}
+          title="返回"
+          color="#000"
+        />
+      )
+    }
+  }
   constructor (props) {
     super(props);
     this.state = {
